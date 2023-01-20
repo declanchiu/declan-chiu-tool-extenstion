@@ -4,7 +4,7 @@ import { createSolidPlugin } from './solid';
 import { createCrxPlugin } from './crx';
 
 
-export const createPlugins = () => {
+const createPlugins = () => {
   const plugins: PluginOption[] = [];
 
   plugins.push(createSolidPlugin());
@@ -12,3 +12,5 @@ export const createPlugins = () => {
 
   return plugins;
 }
+
+export default createPlugins

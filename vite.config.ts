@@ -1,7 +1,9 @@
 import { defineConfig } from 'vite';
 
+import createPlugins from '@build/vite/plugins';
+
 export default defineConfig({
-  plugins: [],
+  plugins: createPlugins(),
   resolve: {
     alias: {}
   },
