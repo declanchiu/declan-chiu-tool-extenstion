@@ -2,6 +2,7 @@
   "name": "vite-template-solid",
   "version": "0.0.0",
   "description": "",
+  "type": "module",
   "scripts": {
     "start": "vite",
     "dev": "vite",
@@ -13,7 +14,7 @@
     "@crxjs/vite-plugin": "2.0.0-beta.10",
     "@types/node": "^18.11.18",
     "typescript": "^4.9.4",
-    "vite": "^4.0.3",
+    "vite": "4.0.4",
     "vite-plugin-solid": "^2.5.0"
   },
   "dependencies": {

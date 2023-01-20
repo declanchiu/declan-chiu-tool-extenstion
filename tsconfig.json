@@ -12,11 +12,6 @@
     "types": ["vite/client"],
     "noEmit": true,
     "isolatedModules": true,
-    "resolveJsonModule": true,
-    "paths": {
-      "@build/*": [
-        "build/*" 
-      ]
-    }
+    "resolveJsonModule": true
   }
 }
