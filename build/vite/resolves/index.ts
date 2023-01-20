@@ -4,8 +4,10 @@ import { createAlias } from './alias';
 
 type Resolves = (ResolveOptions & { alias: AliasOptions }) | undefined
 
-export const createResolves = (): Resolves => {
+const createResolves = (): Resolves => {
   return {
     alias: createAlias()
   }
 }
+
+export default createResolves;
