@@ -1,0 +1,16 @@
+import type { AliasOptions } from 'vite';
+
+import { resolve } from 'path';
+
+const pathResolve = (dir: string) => {
+  return resolve(process.cwd(), '.', dir);
+}
+
+export const createAlias = (): AliasOptions => {
+  return [
+    {
+      find: '@build',
+      replacement: pathResolve('build') + "/"
+    }
+  ]
+}
