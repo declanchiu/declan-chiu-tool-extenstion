@@ -15,11 +15,18 @@ const manifest =  defineManifest(async (env: ConfigEnv) => ({
   name: packageJson.displayName ?? packageJson.name,
   background: { service_worker: 'src/pages/background/index.ts' },
   action: { default_popup: "src/options/index.html", default_icon: 'src/assets/tool-logo.png' },
- 
+
   content_scripts: [
     {
       "js": ["src/pages/content/modules/zhihu-dark-btn/index.tsx"],
-      "matches": ["https://github.com/*"]
+      "matches": ["https://www.zhihu.com/*"]
+    }
+  ],
+
+  web_accessible_resources: [
+    {
+      resources: ["assets/*.js", "assets/css/*.css", "assets/*"],
+      matches: ["*://*/*"],
     }
   ]
 }));
