@@ -15,6 +15,7 @@
     "resolveJsonModule": true,
   },
   "include": [
+    "node_modules/@types",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/content-scripts/App.tsx",

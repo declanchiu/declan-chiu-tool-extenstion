@@ -7,9 +7,14 @@ const pathResolve = (dir: string) => {
 }
 
 export const createAlias = (): AliasOptions => {
-  return {
-    find: '@',
-    replacement: pathResolve('build') + "/"
-  }
-  
+  return [
+    {
+      find: '@',
+      replacement: pathResolve('build') + "/"
+    },
+    {
+      find: '#assets',
+      replacement: pathResolve('assets') + "/"
+    }
+  ]
 }
