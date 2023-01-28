@@ -1,7 +1,8 @@
 {
-  "name": "vite-template-solid",
-  "version": "0.0.0",
-  "description": "",
+  "name": "declan-chiu-tool-extension",
+  "displayName": "Declan Chiu Tool Extenstion",
+  "version": "1.0.0",
+  "description": "使用 vite crx 编写的一个谷歌插件，用于解决平时个人在 web 使用上面的一些交互问题等等",
   "type": "module",
   "scripts": {
     "start": "vite",
