@@ -1,31 +1,66 @@
-import DarkIcon from '../../../../../../assets/content/zhihu-dark-icon.png';
+import { onMount } from 'solid-js';
+
+import DarkIcon from "../../../../../../assets/content/zhihu-dark-icon.png";
 
 import "./index.css";
 
 const ZhihuDarkBtn = () => {
+  onMount(() => {
+    test();
+  })
+
+
   const test = () => {
     const TopstoryItemList = document.getElementsByClassName("TopstoryItem");
     const list = Array.from(TopstoryItemList);
-    const metaList = list.map(item => {
+
+    const tabBarList = list.map((item) => {
+      return item.getElementsByClassName("ContentItem-actions");
+    });
+
+    const metaList = list.map((item) => {
       return item.getElementsByTagName("meta");
-    })
+    });
 
     let toUrlList: any[] = [];
-    metaList.forEach(item => {
+    metaList.forEach((item) => {
       const itemArr = Array.from(item);
-      itemArr.forEach(son => {
-        const isUrl = son.getAttribute('itemprop') === "url";
+      itemArr.forEach((son) => {
+        const isUrl = son.getAttribute("itemprop") === "url";
         if (isUrl) {
-          toUrlList.push(son.getAttribute('content'));
+          toUrlList.push(son.getAttribute("content"));
         }
-      })
-    })
+      });
+    });
 
+    const toArticle = (index: number) => {
+      window.open(toUrlList[index]);
+    }
 
-    console.log("查看跳转链接", toUrlList);
-  }
+    tabBarList.forEach((item, index) => {
+      if (item[0]) {
+        item[0].classList.add("_self-injection-zhihu_btn")
+        item[0].append(
+          // @ts-ignore
+          <img
+            src={chrome.runtime.getURL(DarkIcon)}
+            class="dark-btn_wrapper"
+            onClick={() => toArticle(index)}
+          />
+        );
+      }
+    });
 
-  return <img src={chrome.runtime.getURL(DarkIcon)} class="dark-btn_wrapper" onClick={test} />
-}
+    console.log("查看跳转链接", tabBarList);
+  };
+
+  return (
+    <img
+      src={chrome.runtime.getURL(DarkIcon)}
+      class="dark-btn_wrapper"
+      onClick={test}
+    />
+  );
+};
 
 export default ZhihuDarkBtn;
