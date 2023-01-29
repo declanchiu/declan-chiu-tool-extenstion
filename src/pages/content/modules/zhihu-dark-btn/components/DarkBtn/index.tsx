@@ -28,7 +28,8 @@ const ZhihuDarkBtn = () => {
       itemArr.forEach((son) => {
         const isUrl = son.getAttribute("itemprop") === "url";
         if (isUrl) {
-          toUrlList.push(son.getAttribute("content"));
+          const articleUrl = son.getAttribute("content") + '?theme=dark';
+          toUrlList.push(articleUrl);
         }
       });
     });
@@ -55,11 +56,7 @@ const ZhihuDarkBtn = () => {
   };
 
   return (
-    <img
-      src={chrome.runtime.getURL(DarkIcon)}
-      class="dark-btn_wrapper"
-      onClick={test}
-    />
+    <></>
   );
 };
 
